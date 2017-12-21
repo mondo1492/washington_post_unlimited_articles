@@ -1,0 +1,33 @@
+{
+    "name": "Unlimited Article Views for The Washington Post",
+    "short_name": "Remove Monthly Article Views at www.washingtonpost.com",
+    "description": "This simple extension removes cookies, localStorage data, and sessionStorage data
+                    related to washingtonpost and by doing so, allows unlimited articles
+                    views at www.washingtonpost.com",
+    "version": "1.0",
+    "permissions": [
+      "cookies",
+      "tabs",
+      "background",
+      "http://*/*",
+      "https://*/*"
+    ],
+    "icons": {
+      "48": "news-icon-48.png",
+      "128": "news-icon-128.png"
+    },
+    "content_scripts": [
+        {
+            "run_at": "document_idle",
+            "matches": ["http://www.washingtonpost.com/*", "https://www.washingtonpost.com/*"],
+            "js": ["content.js"]
+        }
+    ],
+    "background": {
+        "scripts": [
+          "eventPage.js"
+        ],
+        "persistent": false
+    },
+    "manifest_version": 2
+}
